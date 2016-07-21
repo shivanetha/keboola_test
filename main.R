@@ -1,4 +1,4 @@
-train=read.csv("tempTrain.csv")
+train=read.csv("/data/in/files/tempTrain.csv")
 model<-glm(Buy~recency+Frequency+monetary+m_p+age_periods,family=quasibinomial(link='logit'),data=train)
 
 train$pred=round(predict(model, data.frame(recency=train$recency,Frequency=train$Frequency, monetary=train$monetary, age_periods=train$age_periods, m_p=train$m_p),type='response'),2)
